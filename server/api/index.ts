@@ -10,7 +10,7 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.status(200).json({
         sucess: true,
-        message: `API is running...`
+        message: `Server/API is running...`
     })
 })
 
