@@ -24,12 +24,12 @@ function App() {
         </ProtectedRoute>
       }>
         <Route index element={<Dashboard />} />
-        <Route path="products" element={<Products />} />
-        <Route path="inventory" element={<Inventory />} />
-        <Route path="sales" element={<Sales />} />
-        <Route path="users" element={<Users />} />
-        <Route path="settings" element={<Settings />} />
-        <Route path="chat" element={<Chat />} />
+        <Route path="productos" element={<Products />} />
+        <Route path="inventario" element={<Inventory />} />
+        <Route path="ventas" element={<Sales />} />
+        <Route path="usuarios" element={<Users />} />
+        <Route path="ajustes" element={<Settings />} />
+        <Route path="mensajes" element={<Chat />} />
       </Route>
       
       <Route path="*" element={<NotFound />} />
