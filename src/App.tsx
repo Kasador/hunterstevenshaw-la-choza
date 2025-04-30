@@ -13,6 +13,7 @@ import NotFound from './pages/NotFound';
 import Layout from './components/_layout';
 import ProtectedRoute from './components/ProtectedRoute'
 
+// https://stackoverflow.com/questions/72234858/how-to-redirect-routes-in-netlify-using-vite-and-react
 function App() {
   return (
     <BrowserRouter>
