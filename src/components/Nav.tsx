@@ -18,12 +18,12 @@ const SettingsIcon = () => <IoSettings />;
 export default function Nav() {
     const navItems = [
         { path: '/', text: 'Dashboard', icon: <DashboardIcon /> },
-        { path: '/products', text: 'Products', icon: <ProductsIcon /> },
-        { path: '/inventory', text: 'Inventory', icon: <InventoryIcon /> },
-        { path: '/sales', text: 'Sales', icon: <SalesIcon /> },
-        { path: '/users', text: 'Users', icon: <UsersIcon /> },
-        { path: '/chat', text: 'Chat', icon: <ChatIcon /> },
-        { path: '/settings', text: 'Settings', icon: <SettingsIcon /> },
+        { path: '/productos', text: 'Productos', icon: <ProductsIcon /> },
+        { path: '/inventario', text: 'Inventario', icon: <InventoryIcon /> },
+        { path: '/ventas', text: 'Ventas', icon: <SalesIcon /> },
+        { path: '/usuarios', text: 'Usuarios', icon: <UsersIcon /> },
+        { path: '/mensajes', text: 'Mensajes', icon: <ChatIcon /> },
+        { path: '/ajustes', text: 'Ajustes', icon: <SettingsIcon /> },
     ];
 
     return (
@@ -51,7 +51,7 @@ export default function Nav() {
             </div>
             
             <div className="p-4 text-center text-stone-400 text-sm">
-                System v1.0
+                Sistema v1.0
             </div>
         </nav>
     );
