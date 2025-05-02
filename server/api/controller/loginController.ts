@@ -4,7 +4,10 @@ import jwt  from 'jsonwebtoken'
 
 // https://www.npmjs.com/package/jsonwebtoken
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
-    const { username, password } = req.body;
+    // const { username, password } = req.body;
+    // const { username, password } = req.query
+    const username = req.query.username as string;
+    const password = req.query.password as string;
 
     try {
         const user = await Users.findOne({ username }); // has to match whats already in the database. 
