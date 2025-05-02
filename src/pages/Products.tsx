@@ -46,6 +46,7 @@ export default function Products() {
       
 
     const handleEdit = (product: Product) => {
+        // temp solution until backend API done.
         setForm({ 
             name: product.name,
             quantity: product.quantity,

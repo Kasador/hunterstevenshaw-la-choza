@@ -1,13 +1,19 @@
+// import react from 'react';
 import Logo from '../assets/images/logo.png'
 import { FaSignInAlt } from "react-icons/fa";
 
 export default function Login() {
+    const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        alert('submited')
+    }
+
     return (
-        <section className="min-h-screen flex items-center justify-center bg-gray-100 text-stone-900 flex-col pb-50">
+        <section className="min-h-screen flex items-center justify-center bg-stone-300 text-stone-900 flex-col pb-50">
             <img src={Logo} alt="404 Error" className="w-40"/>
             <div className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
                 <h1 className="text-2xl font-bold mb-4 text-center">Iniciar Sesi&#243;n</h1>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                         <label className="block mb-1 text-sm font-medium">Usuario</label>
                         <input
