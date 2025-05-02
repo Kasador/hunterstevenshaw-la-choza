@@ -25,8 +25,8 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 userSchema.methods.setPassword = function (plainPassword: string): void {
-    this.salt = crypto.randomBytes(16).toString('hex');
-    this.passwordHash = crypto
+    this.salt = crypto.randomBytes(16).toString('hex'); // randomize the password and make it hex format
+    this.passwordHash = crypto // take the plain password, and then pass it through the params; salt the random password, 1000 = iterations, output len, and finally the sha512 is the hashing algorithm. 
         .pbkdf2Sync(plainPassword, this.salt, 1000, 64, 'sha512')
         .toString('hex');
 };

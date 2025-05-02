@@ -11,6 +11,8 @@ Repository made to create/develop a _Store Management System for Perú_. I will 
 
 <img src="https://github.com/user-attachments/assets/81dd84cb-b251-4b89-8cc6-1cc9f8aa70be" width="800" />
 
+<img src="https://github.com/user-attachments/assets/5e3d67da-66d7-4164-ba8b-ad7f6a44cc16" width="800" />
+
 # ⚛️ **Tech Stack Overview (MERN)** 
 
 [![Tech Stack Icons](https://skillicons.dev/icons?i=js,html,css,react)](https://skillicons.dev)
