@@ -37,6 +37,7 @@ export default function Products() {
 
     interface Product {
         _id: string;
+        id: string;
         name: string;
         quantity: number;
         price: number;
@@ -54,7 +55,7 @@ export default function Products() {
         setEditingId(product._id);
     };
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id: Product) => {
         await axios.delete(`http://localhost:4000/api/products/${id}`);
         fetchProducts();
     };
@@ -98,7 +99,7 @@ export default function Products() {
             </form>
 
             <ul className="space-y-2">
-                {products.map((product) => (
+                {products.map((product: Product) => (
                     <li
                         key={product._id}
                         className="flex justify-between items-center bg-white p-3 rounded shadow"
