@@ -1,14 +1,47 @@
-import mongoose from 'mongoose'
-// const { Schema } = mongoose;
+import mongoose from 'mongoose';
+import crypto from 'crypto';
 
-const usersSchema = new mongoose.Schema({
-    // data: Schema.Types.Mixed
-    username: String
-});
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        minlength: 3
+    },
+    passwordHash: {
+        type: String,
+        required: true
+    },
+    salt: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user'
+    }
+}, { timestamps: true });
 
-const Users = mongoose.model("Users", usersSchema); // defining the 'Users' model
+userSchema.methods.setPassword = function (plainPassword: string): void {
+    this.salt = crypto.randomBytes(16).toString('hex');
+    this.passwordHash = crypto
+        .pbkdf2Sync(plainPassword, this.salt, 1000, 64, 'sha512')
+        .toString('hex');
+};
 
-export default Users
+userSchema.methods.validatePassword = function (plainPassword: string): boolean {
+    const hash = crypto
+        .pbkdf2Sync(plainPassword, this.salt, 1000, 64, 'sha512')
+        .toString('hex');
+    return this.passwordHash === hash;
+};
+
+
+const User = mongoose.model('User', userSchema);
+export default User;
+
 
 /* References >>>
     1) https://www.w3schools.com/mongodb/mongodb_schema_validation.php
@@ -17,4 +50,5 @@ export default Users
     4) https://stackoverflow.com/questions/66383516/add-mongoose-validation-for-phone-numbers
     5) https://www.geeksforgeeks.org/mongoose-schematype/
     6) https://mongoosejs.com/docs/guide.html
+    7) https://stackoverflow.com/questions/62908969/password-hashing-in-nodejs-using-built-in-crypto
 */
