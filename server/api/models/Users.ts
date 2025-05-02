@@ -1,7 +1,17 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 
-const userSchema = new mongoose.Schema({
+// https://mongoosejs.com/docs/typescript/schemas.html
+interface IUser {
+    username: string;
+    passwordHash: string;
+    salt: string;
+    role: 'user' | 'admin';
+    setPassword(password: string): void;
+    validatePassword(password: string): boolean;
+}
+
+const userSchema = new mongoose.Schema<IUser>({
     username: {
         type: String,
         required: true,
@@ -39,7 +49,7 @@ userSchema.methods.validatePassword = function (plainPassword: string): boolean 
 };
 
 
-const User = mongoose.model('User', userSchema);
+const User: mongoose.Model<IUser> = mongoose.model<IUser>('User', userSchema);
 export default User;
 
 
