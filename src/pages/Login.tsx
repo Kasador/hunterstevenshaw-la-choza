@@ -6,7 +6,7 @@ export default function Login() {
         <section className="min-h-screen flex items-center justify-center bg-gray-100 text-stone-900 flex-col pb-50">
             <img src={Logo} alt="404 Error" className="w-40"/>
             <div className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
-                <h1 className="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h1>
+                <h1 className="text-2xl font-bold mb-4 text-center">Iniciar Sesi&#243;n</h1>
                 <form className="space-y-4">
                     <div>
                         <label className="block mb-1 text-sm font-medium">Usuario</label>
@@ -18,10 +18,10 @@ export default function Login() {
                         />
                     </div>
                     <div>
-                        <label className="block mb-1 text-sm font-medium">Contraseña</label>
+                        <label className="block mb-1 text-sm font-medium">Contrase&#241;a</label>
                         <input
                             type="password"
-                            placeholder="Ingresa tu contraseña"
+                            placeholder="Ingresa tu contrase&#241;a"
                             className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                             required
                         />
