@@ -27,6 +27,131 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
     }
 }
 
-// const admin = new User({ username: 'admin', role: 'admin' });
-// admin.setPassword('supersecure123');
-// await admin.save();
+export const getUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+    try {
+        const data = await Users.find({}) // pull back all data from schema 
+
+        if (!data) { // check does not currently work. Still returns status of 200 even if the database has no data.
+            res.status(404).json({ // 404 not found
+                success: false,
+                message: 'No users found.'
+            })
+
+            return;
+        }
+
+        res.status(200).json({ // 200 success
+            success: true,
+            data,
+            message: `Request made from: ${req.method} - /api/users endpoint`
+        })
+    } catch (error) {
+        console.log('Oh no! Something went wrong. ', error)
+        res.status(500).json(error) // 500 internal server error
+    }
+}
+
+export const addUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+    try {
+        const findAdmin = await Users.findOne({ username: 'admin' });
+
+        if (!findAdmin) {
+            const admin = new Users({ username: 'admin', role: 'admin' });
+            admin.setPassword('admin');
+            await admin.save();
+        }  else {
+            return;
+        }
+
+        // if (!admin) { // check does not currently work. Still returns status of 200 even if the database has no data.
+        //     res.status(404).json({ // 404 not found
+        //         success: false,
+        //         message: 'No users found.'
+        //     })
+
+        //     return;
+        // }
+
+        res.status(200).json({ // 200 success
+            success: true,
+            message: `Request made from: ${req.method} - /api/users endpoint > Admin added!`
+        })
+    } catch (error) {
+        console.log('Oh no! Something went wrong. ', error)
+        res.status(500).json(error) // 500 internal server error
+    }
+}
+
+export const removeUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+    try {
+        const data = await Users.find({}) // pull back all data from schema 
+
+        if (!data) { // check does not currently work. Still returns status of 200 even if the database has no data.
+            res.status(404).json({ // 404 not found
+                success: false,
+                message: 'No users found.'
+            })
+
+            return;
+        }
+
+        res.status(200).json({ // 200 success
+            success: true,
+            data,
+            message: `Request made from: ${req.method} - /api/users endpoint`
+        })
+    } catch (error) {
+        console.log('Oh no! Something went wrong. ', error)
+        res.status(500).json(error) // 500 internal server error
+    }
+}
+
+export const updateUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+    try {
+        const data = await Users.find({}) // pull back all data from schema 
+
+        if (!data) { // check does not currently work. Still returns status of 200 even if the database has no data.
+            res.status(404).json({ // 404 not found
+                success: false,
+                message: 'No users found.'
+            })
+
+            return;
+        }
+
+        res.status(200).json({ // 200 success
+            success: true,
+            data,
+            message: `Request made from: ${req.method} - /api/users endpoint`
+        })
+    } catch (error) {
+        console.log('Oh no! Something went wrong. ', error)
+        res.status(500).json(error) // 500 internal server error
+    }
+}
+
+// export const authUser = async (req: Request, res: Response): Promise<void> => {
+//     try {
+//         const admin = new Users({ username: 'admin', role: 'admin' });
+//         admin.setPassword('myawesomepassword');
+//         await admin.save();
+
+//         if (!data) { // check does not currently work. Still returns status of 200 even if the database has no data.
+//             res.status(404).json({ // 404 not found
+//                 success: false,
+//                 message: 'No users found.'
+//             })
+
+//             return;
+//         }
+
+//         res.status(200).json({ // 200 success
+//             success: true,
+//             data,
+//             message: `Request made from: ${req.method} - /api/users endpoint`
+//         })
+//     } catch (error) {
+//         console.log('Oh no! Something went wrong. ', error)
+//         res.status(500).json(error) // 500 internal server error
+//     }
+// }
