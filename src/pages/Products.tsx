@@ -1,71 +1,71 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 
 export default function Products() {
     
-    const [products, setProducts] = useState([]);
-    const [form, setForm] = useState({ name: "", quantity: "", price: "" });
-    const [editingId, setEditingId] = useState(null);
+    // const [products, setProducts] = useState([]);
+    // const [form, setForm] = useState({ name: "", quantity: "", price: "" });
+    // const [editingId, setEditingId] = useState(null);
 
-    useEffect(() => {
-        fetchProducts();
-    }, []);
+    // useEffect(() => {
+    //     fetchProducts();
+    // }, []);
 
-    const fetchProducts = async () => {
-        const res = await axios.get("http://localhost:4000/api/products");
-        setProducts(res.data);
-    };
+    // const fetchProducts = async () => {
+    //     const res = await axios.get("http://localhost:4000/api/products");
+    //     setProducts(res.data);
+    // };
 
-    // https://stackoverflow.com/questions/56562153/react-typescript-onsubmit-e-preventdefault-not-working
-    // https://www.epicreact.dev/how-to-type-a-react-form-on-submit-handler
-    const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (editingId) {
-            await axios.put(`http://localhost:4000/api/products/${editingId}`, form);
-        } else {
-            await axios.post("http://localhost:4000/api/products", form);
-        }
-        setForm({ 
-            name: "",
-            quantity: "",
-            price: ""
-        });
+    // // https://stackoverflow.com/questions/56562153/react-typescript-onsubmit-e-preventdefault-not-working
+    // // https://www.epicreact.dev/how-to-type-a-react-form-on-submit-handler
+    // const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     if (editingId) {
+    //         await axios.put(`http://localhost:4000/api/products/${editingId}`, form);
+    //     } else {
+    //         await axios.post("http://localhost:4000/api/products", form);
+    //     }
+    //     setForm({ 
+    //         name: "",
+    //         quantity: "",
+    //         price: ""
+    //     });
 
-        setEditingId(null);
-        fetchProducts();
-    };
+    //     setEditingId(null);
+    //     fetchProducts();
+    // };
 
-    interface Product {
-        _id: string;
-        id: string;
-        name: string;
-        quantity: number;
-        price: number;
-        image: string;
-      }
+    // interface Product {
+    //     _id: string;
+    //     id: string;
+    //     name: string;
+    //     quantity: number;
+    //     price: number;
+    //     image: string;
+    //   }
       
 
-    const handleEdit = (product: Product) => {
-        // temp solution until backend API done.
-        setForm({ 
-            name: product.name,
-            quantity: product.quantity,
-            price: product.price
-         });
+    // const handleEdit = (product: Product) => {
+    //     // temp solution until backend API done.
+    //     setForm({ 
+    //         name: product.name,
+    //         quantity: product.quantity,
+    //         price: product.price
+    //      });
 
-        setEditingId(product._id);
-    };
+    //     setEditingId(product._id);
+    // };
 
-    const handleDelete = async (id: Product) => {
-        await axios.delete(`http://localhost:4000/api/products/${id}`);
-        fetchProducts();
-    };
+    // const handleDelete = async (id: Product) => {
+    //     await axios.delete(`http://localhost:4000/api/products/${id}`);
+    //     fetchProducts();
+    // };
 
     // https://www.epicreact.dev/how-to-type-a-react-form-on-submit-handler
     return (
         <section className="p-6 text-stone-900 max-w-3xl mx-auto">
             <h1 className="text-2xl font-bold mb-4">Productos</h1>
-
+{/* 
             <form onSubmit={handleSubmit} className="space-y-4 bg-white p-4 rounded shadow mb-6">
                 <input
                     type="text"
@@ -125,7 +125,7 @@ export default function Products() {
                         </div>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
         </section>
     );
 }
