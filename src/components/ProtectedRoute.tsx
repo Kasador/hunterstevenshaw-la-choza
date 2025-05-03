@@ -12,7 +12,7 @@ interface ProtectedRouteProps {
 
 function ProtectedRoute({ children }: ProtectedRouteProps) {
     // will add my real auth logic here when I get it going. this is just a setup! :)
-  const isAuthenticated = false;
+    const isAuthenticated = !!localStorage.getItem('token');
   
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
