@@ -5,6 +5,7 @@ import { FaBoxOpen, FaUsers } from "react-icons/fa";
 import { FaBoxesPacking } from "react-icons/fa6";
 import { GrMoney } from "react-icons/gr";
 import { IoChatboxSharp, IoSettings } from "react-icons/io5";
+import { VscSignOut } from "react-icons/vsc";
 
 // icons to to rendered out
 const DashboardIcon = () => <BsFileBarGraphFill />;
@@ -16,6 +17,10 @@ const ChatIcon = () => <IoChatboxSharp />;
 const SettingsIcon = () => <IoSettings />;
 
 export default function Nav() {
+    const handleSignOut = () => {
+        localStorage.removeItem('token');
+        window.location.reload()
+    }
     const navItems = [
         { path: '/', text: 'Dashboard', icon: <DashboardIcon /> },
         { path: '/productos', text: 'Productos', icon: <ProductsIcon /> },
@@ -49,7 +54,9 @@ export default function Nav() {
                     ))}
                 </ul>
             </div>
-            
+            <div className='text-2xl flex justify-center cursor-pointer hover:text-amber-500 transition-colors'>
+                <VscSignOut onClick={handleSignOut}/>
+            </div>
             <div className="p-4 text-center text-stone-400 text-sm">
                 Sistema v1.0
             </div>
