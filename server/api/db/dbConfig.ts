@@ -20,7 +20,7 @@ const connectDB = async () => {
         console.error("Error connecting to the database: ", error)
     }
 }
-
+// DB configuration changed
 export default connectDB
 
 // const conSuccess = mongoose.connection
