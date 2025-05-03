@@ -51,6 +51,7 @@ export const getUser = async (req: Request, res: Response): Promise<void> => { /
     }
 }
 
+// https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
 export const addUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
     try {
         const findAdmin = await Users.findOne({ username: 'admin' });
@@ -59,8 +60,16 @@ export const addUser = async (req: Request, res: Response): Promise<void> => { /
             const admin = new Users({ username: 'admin', role: 'admin' });
             admin.setPassword('admin');
             await admin.save();
+
+            res.status(200).json({ // 200 success
+                success: true,
+                message: `Request made from: ${req.method} - /api/users endpoint > Admin added!`
+            })
         }  else {
-            return;
+            res.status(409).json({ // 200 success
+                success: false,
+                message: `Request made from: ${req.method} - /api/users endpoint > Admin already added!`
+            })
         }
 
         // if (!admin) { // check does not currently work. Still returns status of 200 even if the database has no data.
