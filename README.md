@@ -2,6 +2,7 @@
 [![Development Tools](https://skillicons.dev/icons?i=vscode,windows,apple,github)](https://skillicons.dev)
 
 - Live Link: [hunterstevenshaw-la-choza.netlify.app/](hunterstevenshaw-la-choza.netlify.app/)
+- Backend Link: [https://github.com/Kasador/hunterstevenshaw-la-choza-backend](https://github.com/Kasador/hunterstevenshaw-la-choza-backend)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a2f31cd2-d1cf-4292-a933-c6116074808b/deploy-status)](https://app.netlify.com/sites/hunterstevenshaw-la-choza/deploys)
 

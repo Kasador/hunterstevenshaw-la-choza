@@ -31,7 +31,7 @@ export default function Login() {
 
     const updatePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val: string = e.currentTarget.value;
-        console.log(val, 'password')
+        // console.log(val, 'password')
         setPassword(val)
     }
 
