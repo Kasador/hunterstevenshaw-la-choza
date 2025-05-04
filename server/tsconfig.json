@@ -9,7 +9,6 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "types": ["node"]
   },
   "include": ["api/**/*.ts", "index.ts"]
 }
