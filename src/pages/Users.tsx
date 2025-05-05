@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import { TiUserAdd } from "react-icons/ti";
 
 export default function Users() {
     type User = {
@@ -34,11 +35,20 @@ export default function Users() {
         console.log('Are you sure you want to delete?')
     }
 
-    console.log(users)
+    const handleNewUser = () => {
+        console.log('Make a new user!')
+    }
+
+    console.log(users) // data
     // https://stackoverflow.com/questions/69080597/%C3%97-typeerror-cannot-read-properties-of-undefined-reading-map
     return (
         <section className="text-stone-900">
-            <h1 className='font-bold text-2xl p-4'>Total Usuarios</h1>
+            {/* <h1 className='font-bold text-2xl p-4'>Total Usuarios</h1> */}
+            <button type='button' className='font-bold text-md p-2 m-2 border-2 rounded bg-stone-800 text-stone-100 flex items-center cursor-pointer hover:bg-stone-500'
+                onClick={handleNewUser}
+            >
+                Nuevo Usuario&nbsp; <TiUserAdd className='text-green-500'/>
+            </button>
             <table className="w-full divide-y divide-gray-200 shadow-md rounded-tl-lg overflow-hidden m-0">
                 <thead className="bg-stone-800 text-white">
                     <tr>
