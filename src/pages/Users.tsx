@@ -13,7 +13,7 @@ export default function Users() {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await axios.get(`${import.meta.env.VITE_API_URLhttp}api/users/`)
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}api/users/`)
                 // const res = await axios.get(`http://localhost:4000/api/users/`)
                 setUsers(res.data.data)
             } catch (error) {
@@ -23,6 +23,8 @@ export default function Users() {
 
         fetchUsers()
     }, [])
+
+    console.log(users)
     // https://stackoverflow.com/questions/69080597/%C3%97-typeerror-cannot-read-properties-of-undefined-reading-map
     return (
         <section className="text-stone-900">
