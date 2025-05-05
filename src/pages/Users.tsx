@@ -23,12 +23,12 @@ export default function Users() {
 
         fetchUsers()
     }, [])
-
+    // https://stackoverflow.com/questions/69080597/%C3%97-typeerror-cannot-read-properties-of-undefined-reading-map
     return (
         <section className="text-stone-900">
             <h1>Users</h1>
             <ul>
-                {users.map((user: User) => (
+                {users?.map((user: User) => (
                     <li key={user._id}>
                         {user.username} — {user.role}
                     </li>
