@@ -14,6 +14,7 @@ export default function Users() {
         const fetchUsers = async () => {
             try {
                 const res = await axios.get(`${import.meta.env.VITE_API_URLhttp}api/users/`)
+                // const res = await axios.get(`http://localhost:4000/api/users/`)
                 setUsers(res.data.data)
             } catch (error) {
                 console.error('Failed to fetch users:', error)
