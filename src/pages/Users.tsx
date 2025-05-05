@@ -28,7 +28,7 @@ export default function Users() {
         <section className="text-stone-900">
             <h1>Users</h1>
             <ul>
-                {users.map((user: User) => (
+                {users?.map((user: User) => (
                     <li key={user._id}>
                         {user.username} — {user.role}
                     </li>
