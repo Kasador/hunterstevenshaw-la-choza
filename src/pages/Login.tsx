@@ -41,6 +41,10 @@ export default function Login() {
                 username,
                 password
             });
+            // const res = await axios.post(`http://localhost:4000/api/login`, {
+            //     username,
+            //     password
+            // });
             // setUsers(res.data);
     
             localStorage.setItem('token', res.data.token);
