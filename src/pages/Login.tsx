@@ -48,6 +48,7 @@ export default function Login() {
             // setUsers(res.data);
     
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('username', username);
             navigate('/')
             // setUsername(username)
             // setPassword(password)
